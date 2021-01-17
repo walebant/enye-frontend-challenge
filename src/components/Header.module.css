@@ -1,0 +1,36 @@
+.Header {
+  background-color: #3da396;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  padding: 20px 60px;
+  color: white;
+}
+
+.title {
+  margin-right: 1em;
+}
+
+.searchBox {
+  max-width: 100%;
+  position: relative;
+}
+
+.input {
+  width: 500px;
+  max-width: 500px;
+  padding: 20px 40px;
+  outline: none;
+  font-size: 14px;
+  border: none;
+  color: #e5e5e5;
+  border-radius: 40px;
+  background-color: #66b7ac;
+}
+
+.input::placeholder {
+  color: #e5e5e5;
+  opacity: 0.8;
+}

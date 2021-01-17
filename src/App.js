@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect, useMemo } from 'react';
+import Header from './components/Header';
+import Table from './components/Table';
 
 function App() {
+  const [query, setQuery] = useState('');
+  const [patients, setPatients] = useState(null);
+  const [pages, setPages] = useState(0);
+
+  const [error, setErrror] = useState(null);
+
+  const data = useMemo(
+    () =>
+      query
+        ? patients?.filter(({ FirstName, LastName }) =>
+            `${FirstName.toLowerCase()} ${LastName.toLowerCase()}`.includes(
+              query
+            )
+          )
+        : patients,
+    [query, patients]
+  );
+
+  useEffect(() => {
+    fetch('https://api.enye.tech/v1/challenge/records')
+      .then(res => res.json())
+      .then(({ records: { profiles }, size }) => {
+        setPatients(profiles);
+        setPages(size);
+      })
+      .catch(e => setErrror(e));
+  }, []);
+
+  console.log({ patients, data });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Header query={query} setQuery={setQuery} />
+      {data && <Table patients={data} />}
     </div>
   );
 }

@@ -1,0 +1,63 @@
+.Container {
+  /* width: max-content; */
+  margin: 50px 80px;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: calc(10px + 0.7vmin);
+}
+
+.table th,
+.table td {
+  /* width: max-content; */
+}
+
+.thead tr th {
+  padding-bottom: 15px;
+}
+
+.tbody tr:hover {
+  background-color: #f4f7f9;
+  border-radius: 30px;
+}
+
+.tbody tr td {
+  padding: 15px 0;
+  border-top: 1px solid #f4f7f9;
+}
+
+.tbody tr td:last-child {
+  text-align: center;
+}
+
+.tbody tr td span.paymentMethod {
+  min-width: 120px !important;
+  margin: 30px !important;
+  height: 30px;
+  padding: 10px;
+  border-radius: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: calc(7px + 0.7vmin);
+}
+
+.tbody tr td span.paymentMethod[method='paypal'] {
+  color: #47a176;
+  background-color: #d0e7dc;
+}
+
+.tbody tr td span.paymentMethod[method='check'] {
+  color: #f2dcf5;
+  background-color: #a127b5;
+}
+.tbody tr td span.paymentMethod[method='money order'] {
+  color: #2983b8;
+  background-color: #c5e6f8;
+}
+.tbody tr td span.paymentMethod[method='cc'] {
+  color: #eb583f;
+  background-color: #f0b0a5;
+}
