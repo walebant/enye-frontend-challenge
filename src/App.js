@@ -1,42 +1,40 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import Header from './components/Header';
 import Table from './components/Table';
+import Pagination from './components/Pagination';
+import usePatients from './hooks/usePatients';
+import usePagination from './hooks/usePagination';
 
 function App() {
   const [query, setQuery] = useState('');
-  const [patients, setPatients] = useState(null);
-  const [pages, setPages] = useState(0);
+  const { patients } = usePatients();
+  const { jumpTo, currentData, currentPage, totalPages } = usePagination(
+    patients
+  );
 
-  const [error, setErrror] = useState(null);
+  const currentPageList = currentData();
 
   const data = useMemo(
     () =>
       query
-        ? patients?.filter(({ FirstName, LastName }) =>
+        ? currentPageList?.filter(({ FirstName, LastName }) =>
             `${FirstName.toLowerCase()} ${LastName.toLowerCase()}`.includes(
               query
             )
           )
-        : patients,
-    [query, patients]
+        : currentPageList,
+    [query, currentPageList]
   );
-
-  useEffect(() => {
-    fetch('https://api.enye.tech/v1/challenge/records')
-      .then(res => res.json())
-      .then(({ records: { profiles }, size }) => {
-        setPatients(profiles);
-        setPages(size);
-      })
-      .catch(e => setErrror(e));
-  }, []);
-
-  console.log({ patients, data });
 
   return (
     <div className='App'>
       <Header query={query} setQuery={setQuery} />
       {data && <Table patients={data} />}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        jumpTo={jumpTo}
+      />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import styles from './Header.module.css';
+import styles from '../css/header.module.css';
 
 const Header = ({ query, setQuery }) => {
   return (

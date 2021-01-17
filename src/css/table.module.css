@@ -1,6 +1,6 @@
 .Container {
   /* width: max-content; */
-  margin: 50px 80px;
+  margin: 100px 80px;
 }
 
 .table {
@@ -13,6 +13,11 @@
 .table th,
 .table td {
   /* width: max-content; */
+}
+
+.thead {
+  /* position: fixed; */
+  /* width: max-width; */
 }
 
 .thead tr th {

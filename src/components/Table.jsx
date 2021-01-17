@@ -1,4 +1,4 @@
-import styles from './Table.module.css';
+import styles from '../css/table.module.css';
 
 const Table = ({ patients }) => {
   return (
@@ -16,25 +16,23 @@ const Table = ({ patients }) => {
           </tr>
         </thead>
         <tbody className={styles.tbody}>
-          {patients
-            ?.sort((a, z) => (a.FirstName > z.FirstName ? 1 : -1))
-            .map((patient, idx) => (
-              <tr key={patient.UserName}>
-                <td>{idx + 1}.</td>
-                <td>{patient.FirstName}</td>
-                <td>{patient.LastName}</td>
-                <td>{patient.Gender}</td>
-                <td>{patient.PhoneNumber}</td>
-                <td>{patient.Email}</td>
-                <td>
-                  <span
-                    method={patient.PaymentMethod.toLowerCase()}
-                    className={styles.paymentMethod}>
-                    {patient.PaymentMethod}
-                  </span>
-                </td>
-              </tr>
-            ))}
+          {patients.map(patient => (
+            <tr key={patient.UserName}>
+              <td>{patient.sn}.</td>
+              <td>{patient.FirstName}</td>
+              <td>{patient.LastName}</td>
+              <td>{patient.Gender}</td>
+              <td>{patient.PhoneNumber}</td>
+              <td>{patient.Email}</td>
+              <td>
+                <span
+                  method={patient.PaymentMethod.toLowerCase()}
+                  className={styles.paymentMethod}>
+                  {patient.PaymentMethod}
+                </span>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </main>
