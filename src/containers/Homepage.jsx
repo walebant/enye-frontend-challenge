@@ -1,13 +1,12 @@
 import { useState, useMemo } from 'react';
-import Header from './Header';
-import Table from './Table';
-import Pagination from './Pagination';
-import Filter from './Filter';
+import Header from '../components/Header';
+import Table from '../components/Table';
+import Pagination from '../components/Pagination';
+import Filter from '../components/Filter';
 import usePatients from '../hooks/usePatients';
 import usePagination from '../hooks/usePagination';
-import { Link } from 'react-router-dom';
 
-function Homepage() {
+function Homepage({ setSelectedPatient }) {
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState({
     payment: '',
@@ -18,16 +17,6 @@ function Homepage() {
 
   const { jumpTo, currentData, currentPage, totalPages } = usePagination(myRes);
 
-  // const patientsData = useMemo(() => {
-  //   const currentPageData = currentData();
-  //   if (query) {
-  //     return currentPageData?.filter(({ FirstName, LastName }) =>
-  //       `${FirstName.toLowerCase()} ${LastName.toLowerCase()}`.includes(query)
-  //     );
-  //   }
-  //   return currentPageData;
-  // }, [query, currentData]);
-
   const res = currentData();
   return (
     <div>
@@ -36,7 +25,7 @@ function Homepage() {
         {res ? (
           <>
             <Filter filter={filter} setFilter={setFilter} data={apiResult} />
-            <Table patients={res} />
+            <Table patients={res} setSelectedPatient={setSelectedPatient} />
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}

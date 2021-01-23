@@ -1,6 +1,7 @@
 import styles from '../css/table.module.css';
+import { Link } from 'react-router-dom';
 
-const Table = ({ patients }) => {
+const Table = ({ patients, setSelectedPatient }) => {
   return (
     <main className={styles.Container}>
       <table className={styles.table}>
@@ -13,6 +14,7 @@ const Table = ({ patients }) => {
             <th>Phone</th>
             <th>Email</th>
             <th>Payment Method</th>
+            <th></th>
           </tr>
         </thead>
         <tbody className={styles.tbody}>
@@ -30,6 +32,11 @@ const Table = ({ patients }) => {
                   className={styles.paymentMethod}>
                   {patient.PaymentMethod}
                 </span>
+              </td>
+              <td>
+                <Link to='/profile' onClick={() => setSelectedPatient(patient)}>
+                  View Profile
+                </Link>
               </td>
             </tr>
           ))}
