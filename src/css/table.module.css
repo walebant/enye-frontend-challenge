@@ -1,6 +1,6 @@
 .Container {
   /* width: max-content; */
-  margin: 100px 80px;
+  margin: 20px 80px 50px 80px;
 }
 
 .table {
@@ -8,11 +8,16 @@
   text-align: left;
   border-collapse: collapse;
   font-size: calc(10px + 0.7vmin);
+
+  table-layout: auto;
+  border-collapse: collapse;
+  /* width: 100%; */
 }
 
 .table th,
 .table td {
-  /* width: max-content; */
+  white-space: nowrap;
+  width: max-content;
 }
 
 .thead {
@@ -55,8 +60,8 @@
 }
 
 .tbody tr td span.paymentMethod[method='check'] {
-  color: #f2dcf5;
-  background-color: #a127b5;
+  background-color: #f2dcf5;
+  color: #a127b5;
 }
 .tbody tr td span.paymentMethod[method='money order'] {
   color: #2983b8;

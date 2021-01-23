@@ -1,0 +1,59 @@
+.filterContainer {
+  display: flex;
+  margin: 100px 0 30px 80px;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+}
+
+.filterGroup p {
+  font-size: 13px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.filterGroup select {
+  display: block;
+  appearance: none;
+  margin: 0;
+  font-family: inherit;
+  font-size: 14px;
+  height: 30px;
+  width: min(150px, 100%);
+  width: 150px;
+  background: #fff;
+  border: 1px solid #3da396;
+  border-radius: 20px;
+  padding: 0 10px;
+  color: #313131;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='255px' height='255px' viewBox='0 0 255 255' style='enable-background:new 0 0 255 255;' xml:space='preserve'%3E%3Cg%3E%3Cg id='arrow-drop-down'%3E%3Cpolygon points='0,63.75 127.5,191.25 255,63.75 '/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat, repeat;
+  /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+  background-position: right 0.7em top 50%, 0 0;
+  /* icon size, then gradient */
+  background-size: 0.65em auto, 100%;
+}
+
+.filterGroup:last-child {
+  margin-left: 40px;
+}
+
+.option {
+  /* height: 30px; */
+  /* font-size: 14px;
+  margin: 4px 0;
+  width: fit-content;
+  border-radius: 40px;
+  padding: 3px 5px;
+  background-color: #fff;
+  color: #313131;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #3da396;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold; */
+}

@@ -9,7 +9,16 @@ const Pagination = ({ currentPage, totalPages, jumpTo }) => {
         const pageNum = num + 1;
         return (
           <li key={num} className={currentPage === pageNum && styles.active}>
-            <button onClick={() => jumpTo(pageNum)}>{pageNum}</button>
+            <button
+              onClick={() => {
+                jumpTo(pageNum);
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth',
+                });
+              }}>
+              {pageNum}
+            </button>
           </li>
         );
       })}

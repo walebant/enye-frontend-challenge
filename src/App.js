@@ -2,39 +2,50 @@ import { useState, useMemo } from 'react';
 import Header from './components/Header';
 import Table from './components/Table';
 import Pagination from './components/Pagination';
+import Filter from './components/Filter';
 import usePatients from './hooks/usePatients';
 import usePagination from './hooks/usePagination';
 
 function App() {
   const [query, setQuery] = useState('');
-  const { patients } = usePatients();
-  const { jumpTo, currentData, currentPage, totalPages } = usePagination(
-    patients
-  );
+  const [filter, setFilter] = useState({
+    payment: '',
+    gender: '',
+  });
 
-  const currentPageList = currentData();
+  const { apiResult, myRes } = usePatients(filter, query);
 
-  const data = useMemo(
-    () =>
-      query
-        ? currentPageList?.filter(({ FirstName, LastName }) =>
-            `${FirstName.toLowerCase()} ${LastName.toLowerCase()}`.includes(
-              query
-            )
-          )
-        : currentPageList,
-    [query, currentPageList]
-  );
+  const { jumpTo, currentData, currentPage, totalPages } = usePagination(myRes);
 
+  // const patientsData = useMemo(() => {
+  //   const currentPageData = currentData();
+  //   if (query) {
+  //     return currentPageData?.filter(({ FirstName, LastName }) =>
+  //       `${FirstName.toLowerCase()} ${LastName.toLowerCase()}`.includes(query)
+  //     );
+  //   }
+  //   return currentPageData;
+  // }, [query, currentData]);
+
+  const res = currentData();
   return (
-    <div className='App'>
+    <div>
       <Header query={query} setQuery={setQuery} />
-      {data && <Table patients={data} />}
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        jumpTo={jumpTo}
-      />
+      <section className='Main-content'>
+        {res ? (
+          <>
+            <Filter filter={filter} setFilter={setFilter} data={apiResult} />
+            <Table patients={res} />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              jumpTo={jumpTo}
+            />
+          </>
+        ) : (
+          <h2 className='loading'>Laoding... 🛏</h2>
+        )}
+      </section>
     </div>
   );
 }
