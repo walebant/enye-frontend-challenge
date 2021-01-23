@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../css/notfound.module.css';
+import { Link } from 'react-router-dom';
 
 const Page404 = () => {
   return (
@@ -12,6 +13,7 @@ const Page404 = () => {
           </span>
         </h1>
         <p>Page Not Found</p>
+        <Link to='/'>Go Home</Link>
       </section>
     </div>
   );
