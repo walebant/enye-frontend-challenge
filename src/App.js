@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Homepage from './containers/Homepage';
 import Profile from './containers/Profile';
+import Page404 from './containers/Page404';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -26,13 +27,7 @@ function App() {
           <Profile selectedPatient={selectedPatient} />
         </Route>
         <Route path='*'>
-          <h1>
-            404{' '}
-            <span role='image' aria-label='sorry'>
-              😢
-            </span>
-          </h1>
-          <p>Page Not Found</p>
+          <Page404 />
         </Route>
       </Switch>
     </Router>

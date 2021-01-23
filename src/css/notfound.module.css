@@ -1,0 +1,16 @@
+.Container {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Container h1 {
+  font-size: 3em;
+}
+
+.Container p {
+  font-size: 2em;
+}
