@@ -8,7 +8,7 @@ const Page404 = () => {
       <section>
         <h1>
           404{' '}
-          <span role='image' aria-label='sorry'>
+          <span role='img' aria-label='sorry'>
             😢
           </span>
         </h1>
