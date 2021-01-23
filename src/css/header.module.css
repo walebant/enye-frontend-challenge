@@ -13,17 +13,16 @@
 }
 
 .title {
-  margin-right: 1em;
+  width: 30%;
 }
 
 .searchBox {
-  max-width: 100%;
+  width: 60%;
   position: relative;
 }
 
 .input {
-  width: 500px;
-  max-width: 500px;
+  width: 70%;
   padding: 20px 40px;
   outline: none;
   font-size: 14px;
