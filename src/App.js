@@ -7,16 +7,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
   const [selectedPatient, setSelectedPatient] = useState(null);
 
-  // const patientsData = useMemo(() => {
-  //   const currentPageData = currentData();
-  //   if (query) {
-  //     return currentPageData?.filter(({ FirstName, LastName }) =>
-  //       `${FirstName.toLowerCase()} ${LastName.toLowerCase()}`.includes(query)
-  //     );
-  //   }
-  //   return currentPageData;
-  // }, [query, currentData]);
-
   return (
     <Router>
       <Switch>

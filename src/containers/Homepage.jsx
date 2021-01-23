@@ -33,7 +33,7 @@ function Homepage({ setSelectedPatient }) {
             />
           </>
         ) : (
-          <h2 className='loading'>Laoding... 🛏</h2>
+          <h2 className='loading'>Loading... 🛏</h2>
         )}
       </section>
     </div>
